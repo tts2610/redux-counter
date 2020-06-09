@@ -9,7 +9,6 @@ function App() {
   const count = useSelector((state) => state.count);
   const color = useSelector((state) => state.color);
   const divArr = useSelector((state) => state.divArr);
-  const textColor = useSelector((state) => state.textColor);
   const dispatch = useDispatch();
   let divList = [];
   for (let index = 0; index < count; index++) {
@@ -18,7 +17,7 @@ function App() {
         style={{
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-evenly",
+          justifyContent: "space-between",
           width: "150px",
           height: "150px",
           backgroundColor: `${divArr[index] ? divArr[index] : color}`,
@@ -27,7 +26,7 @@ function App() {
         }}
         value={index}
       >
-        <div style={{ color: textColor }}>Title</div>
+        <div>Title</div>
         <Form.Group>
           <Form.Control
             size="lg"

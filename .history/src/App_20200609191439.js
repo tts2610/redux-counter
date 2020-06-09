@@ -27,7 +27,7 @@ function App() {
         }}
         value={index}
       >
-        <div style={{ color: textColor }}>Title</div>
+        <div style={{}}>Title</div>
         <Form.Group>
           <Form.Control
             size="lg"

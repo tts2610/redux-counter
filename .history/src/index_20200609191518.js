@@ -13,6 +13,39 @@ const initialState = {
   textColor: "black",
 };
 
+// function countReducer(state = initialState, action) {
+//   switch (action.type) {
+//     case "INCREMENT":
+//       return {
+//         count: state.count + 1,
+//         color: action.payload,
+//       };
+//     case "DECREMENT":
+//       return {
+//         count: state.count - 1 < 1 ? 1 : state.count - 1,
+//         color: action.payload,
+//       };
+//     case "RESET":
+//       return {
+//         count: 1,
+//         color: action.payload,
+//       };
+//     case "CHANGECOLOR":
+//       return {
+//         count: state.count,
+//         color: action.payload,
+//       };
+//     case "CHANGEINDIVIDUAL":
+//       return {
+//         count: state.count,
+//         color: action.payload,
+//         divArr: (state.divArr[action.payload.id] = action.payload.color),
+//       };
+//     default:
+//       return state;
+//   }
+// }
+
 function reducer(state = initialState, action) {
   if (action.type === "INCREMENT") {
     state.count++;
