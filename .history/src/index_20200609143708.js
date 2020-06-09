@@ -30,9 +30,9 @@ function countReducer(state = initialState, action) {
 }
 
 const store = createStore(
-  countReducer,
-  // Hooks up Redux Devtools
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  countReducer
+  // // Hooks up Redux Devtools
+  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 ReactDOM.render(

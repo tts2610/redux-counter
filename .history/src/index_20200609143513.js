@@ -16,23 +16,15 @@ function countReducer(state = initialState, action) {
       return {
         count: state.count + 1,
       };
-    case "DECREMENT":
-      return {
-        count: state.count - 1,
-      };
-    case "RESET":
-      return {
-        count: 0,
-      };
     default:
       return state;
   }
 }
 
 const store = createStore(
-  countReducer,
-  // Hooks up Redux Devtools
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  countReducer
+  // // Hooks up Redux Devtools
+  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 ReactDOM.render(

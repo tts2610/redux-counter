@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "";
 
 function App() {
   const count = useSelector((state) => state.count);

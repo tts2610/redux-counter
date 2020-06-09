@@ -3,8 +3,6 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { createStore } from "redux";
-import { Provider } from "react-redux";
 
 const initialState = {
   count: 0,
@@ -16,29 +14,15 @@ function countReducer(state = initialState, action) {
       return {
         count: state.count + 1,
       };
-    case "DECREMENT":
-      return {
-        count: state.count - 1,
-      };
-    case "RESET":
-      return {
-        count: 0,
-      };
     default:
       return state;
   }
 }
 
-const store = createStore(
-  countReducer,
-  // Hooks up Redux Devtools
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
-
 ReactDOM.render(
-  <Provider store={store}>
+  <React.StrictMode>
     <App />
-  </Provider>,
+  </React.StrictMode>,
   document.getElementById("root")
 );
 
