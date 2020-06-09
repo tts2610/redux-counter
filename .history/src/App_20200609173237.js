@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -9,39 +9,37 @@ function App() {
   const color = useSelector((state) => state.color);
   const divArr = useSelector((state) => state.divArr);
   const dispatch = useDispatch();
+  let temp = count;
   let divList = [];
-  for (let index = 0; index < count; index++) {
-    console.log(divArr["green"]);
+  while (temp > 0) {
     divList.push(
       <div
         style={{
           width: "150px",
           height: "150px",
-          backgroundColor: `${divArr[index] ? divArr[index] : color}`,
+          backgroundColor: `${divArr.color ? divArr.color : color}`,
           margin: "0 auto",
           borderBottom: "1px solid black",
         }}
-        value={index}
       >
         <Form.Group>
           <Form.Control
             size="lg"
-            onChange={(e) => handleOnChange(e, index)}
+            onChange={(e) =>
+              dispatch({
+                type: "CHANGEINDIVIDUAL",
+                payload: { id: color, color: e.target.value },
+              })
+            }
             type="text"
-            placeholder="Input color"
+            placeholder="Large text"
           />
         </Form.Group>
       </div>
     );
+    temp--;
+    console.log(divArr);
   }
-
-  const handleOnChange = (e, id) => {
-    console.log(id);
-    dispatch({
-      type: "CHANGEINDIVIDUAL",
-      payload: { id: id, color: e.target.value },
-    });
-  };
 
   return (
     <div className="App">
@@ -83,17 +81,14 @@ function App() {
             onChange={(e) =>
               dispatch({
                 type: "CHANGECOLOR",
-                payload: {
-                  all: e.target.value === "" ? "pink" : e.target.value,
-                },
+                payload: { all: e.target.value },
               })
             }
             type="text"
-            placeholder="Input color"
+            placeholder="Large text"
           />
         </Form.Group>
       </div>
-      <hr></hr>
       {divList}
     </div>
   );

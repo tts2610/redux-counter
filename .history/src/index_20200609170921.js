@@ -12,38 +12,38 @@ const initialState = {
   divArr: {},
 };
 
-// function countReducer(state = initialState, action) {
-//   switch (action.type) {
-//     case "INCREMENT":
-//       return {
-//         count: state.count + 1,
-//         color: action.payload,
-//       };
-//     case "DECREMENT":
-//       return {
-//         count: state.count - 1 < 1 ? 1 : state.count - 1,
-//         color: action.payload,
-//       };
-//     case "RESET":
-//       return {
-//         count: 1,
-//         color: action.payload,
-//       };
-//     case "CHANGECOLOR":
-//       return {
-//         count: state.count,
-//         color: action.payload,
-//       };
-//     case "CHANGEINDIVIDUAL":
-//       return {
-//         count: state.count,
-//         color: action.payload,
-//         divArr: (state.divArr[action.payload.id] = action.payload.color),
-//       };
-//     default:
-//       return state;
-//   }
-// }
+function countReducer(state = initialState, action) {
+  switch (action.type) {
+    case "INCREMENT":
+      return {
+        count: state.count + 1,
+        color: action.payload,
+      };
+    case "DECREMENT":
+      return {
+        count: state.count - 1 < 1 ? 1 : state.count - 1,
+        color: action.payload,
+      };
+    case "RESET":
+      return {
+        count: 1,
+        color: action.payload,
+      };
+    case "CHANGECOLOR":
+      return {
+        count: state.count,
+        color: action.payload,
+      };
+    case "CHANGEINDIVIDUAL":
+      return {
+        count: state.count,
+        color: action.payload,
+        divArr: (state.divArr[action.payload.id] = action.payload.color),
+      };
+    default:
+      return state;
+  }
+}
 
 function reducer(state = initialState, action) {
   if (action.type === "INCREMENT") {
@@ -51,16 +51,15 @@ function reducer(state = initialState, action) {
   } else if (action.type === "DECREMENT") {
     state.count = state.count - 1 < 1 ? 1 : state.count - 1;
   } else if (action.type === "CHANGECOLOR") {
-    state.color = action.payload.all;
+    state.colorCode = action.payload.color;
   } else if (action.type === "CHANGEINDIVIDUAL") {
-    state.divArr[action.payload.id] = action.payload.color;
+    state.individualColor[action.payload.ordinal] = action.payload.color;
   }
-  state.divArr = { ...state.divArr };
   return { ...state };
 }
 
 const store = createStore(
-  reducer,
+  countReducer,
   // Hooks up Redux Devtools
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );

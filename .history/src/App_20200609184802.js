@@ -9,33 +9,35 @@ function App() {
   const color = useSelector((state) => state.color);
   const divArr = useSelector((state) => state.divArr);
   const dispatch = useDispatch();
+  let temp = count;
   let divList = [];
-  for (let index = 0; index < count; index++) {
+  while (temp > 0) {
     console.log(divArr["green"]);
     divList.push(
       <div
         style={{
           width: "150px",
           height: "150px",
-          backgroundColor: `${divArr[index] ? divArr[index] : color}`,
+          backgroundColor: `${divArr[color] ? divArr[color] : color}`,
           margin: "0 auto",
           borderBottom: "1px solid black",
         }}
-        value={index}
+        value={temp}
       >
         <Form.Group>
           <Form.Control
             size="lg"
-            onChange={(e) => handleOnChange(e, index)}
+            onChange={() => handleOnChange(temp)}
             type="text"
-            placeholder="Input color"
+            placeholder="Large text"
           />
         </Form.Group>
       </div>
     );
+    temp--;
   }
 
-  const handleOnChange = (e, id) => {
+  const handleOnChange = (id) => {
     console.log(id);
     dispatch({
       type: "CHANGEINDIVIDUAL",
@@ -89,11 +91,10 @@ function App() {
               })
             }
             type="text"
-            placeholder="Input color"
+            placeholder="Large text"
           />
         </Form.Group>
       </div>
-      <hr></hr>
       {divList}
     </div>
   );

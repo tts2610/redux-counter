@@ -51,16 +51,15 @@ function reducer(state = initialState, action) {
   } else if (action.type === "DECREMENT") {
     state.count = state.count - 1 < 1 ? 1 : state.count - 1;
   } else if (action.type === "CHANGECOLOR") {
-    state.color = action.payload.all;
+    state.color = action.payload.color;
   } else if (action.type === "CHANGEINDIVIDUAL") {
     state.divArr[action.payload.id] = action.payload.color;
   }
-  state.divArr = { ...state.divArr };
   return { ...state };
 }
 
 const store = createStore(
-  reducer,
+  countReducer,
   // Hooks up Redux Devtools
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );

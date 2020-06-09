@@ -54,8 +54,8 @@ function reducer(state = initialState, action) {
     state.color = action.payload.all;
   } else if (action.type === "CHANGEINDIVIDUAL") {
     state.divArr[action.payload.id] = action.payload.color;
+    console.log(state.divArr);
   }
-  state.divArr = { ...state.divArr };
   return { ...state };
 }
 

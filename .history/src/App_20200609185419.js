@@ -13,25 +13,26 @@ function App() {
   for (let index = 0; index < count; index++) {
     console.log(divArr["green"]);
     divList.push(
-      <div
-        style={{
-          width: "150px",
-          height: "150px",
-          backgroundColor: `${divArr[index] ? divArr[index] : color}`,
-          margin: "0 auto",
-          borderBottom: "1px solid black",
-        }}
-        value={index}
-      >
+      <>
+        <div
+          style={{
+            width: "150px",
+            height: "150px",
+            backgroundColor: `${divArr[index] ? divArr[index] : color}`,
+            margin: "0 auto",
+            borderBottom: "1px solid black",
+          }}
+          value={index}
+        ></div>
         <Form.Group>
           <Form.Control
             size="lg"
             onChange={(e) => handleOnChange(e, index)}
             type="text"
-            placeholder="Input color"
+            placeholder="Large text"
           />
         </Form.Group>
-      </div>
+      </>
     );
   }
 
@@ -89,11 +90,10 @@ function App() {
               })
             }
             type="text"
-            placeholder="Input color"
+            placeholder="Large text"
           />
         </Form.Group>
       </div>
-      <hr></hr>
       {divList}
     </div>
   );

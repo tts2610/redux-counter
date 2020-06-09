@@ -17,7 +17,7 @@ function App() {
         style={{
           width: "150px",
           height: "150px",
-          backgroundColor: `${divArr[index] ? divArr[index] : color}`,
+          backgroundColor: `${divArr[color] ? divArr[color] : color}`,
           margin: "0 auto",
           borderBottom: "1px solid black",
         }}
@@ -28,7 +28,7 @@ function App() {
             size="lg"
             onChange={(e) => handleOnChange(e, index)}
             type="text"
-            placeholder="Input color"
+            placeholder="Large text"
           />
         </Form.Group>
       </div>
@@ -89,11 +89,10 @@ function App() {
               })
             }
             type="text"
-            placeholder="Input color"
+            placeholder="Large text"
           />
         </Form.Group>
       </div>
-      <hr></hr>
       {divList}
     </div>
   );

@@ -9,7 +9,7 @@ import { Provider } from "react-redux";
 const initialState = {
   count: 1,
   color: "pink",
-  divArr: {},
+  divArr: { color: "green" },
 };
 
 // function countReducer(state = initialState, action) {
@@ -55,7 +55,7 @@ function reducer(state = initialState, action) {
   } else if (action.type === "CHANGEINDIVIDUAL") {
     state.divArr[action.payload.id] = action.payload.color;
   }
-  state.divArr = { ...state.divArr };
+  console.log(state.divArr);
   return { ...state };
 }
 

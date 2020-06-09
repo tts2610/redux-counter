@@ -23,15 +23,15 @@ function App() {
         }}
         value={index}
       >
-        <Form.Group>
+      </div>
+      <Form.Group>
           <Form.Control
             size="lg"
             onChange={(e) => handleOnChange(e, index)}
             type="text"
-            placeholder="Input color"
+            placeholder="Large text"
           />
         </Form.Group>
-      </div>
     );
   }
 
@@ -89,11 +89,10 @@ function App() {
               })
             }
             type="text"
-            placeholder="Input color"
+            placeholder="Large text"
           />
         </Form.Group>
       </div>
-      <hr></hr>
       {divList}
     </div>
   );
