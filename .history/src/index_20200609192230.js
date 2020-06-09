@@ -17,12 +17,9 @@ function reducer(state = initialState, action) {
   if (action.type === "INCREMENT") {
     state.count++;
     if (state.count > 10) state.textColor = "purple";
+    else state.textColor = "black";
   } else if (action.type === "DECREMENT") {
     state.count = state.count - 1 < 1 ? 1 : state.count - 1;
-    if (state.count <= 10) state.textColor = "black";
-  } else if (action.type === "RESET") {
-    state.count = 1;
-    state.textColor = "black";
   } else if (action.type === "CHANGECOLOR") {
     state.color = action.payload.all;
   } else if (action.type === "CHANGEINDIVIDUAL") {

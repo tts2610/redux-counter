@@ -27,7 +27,7 @@ function App() {
         }}
         value={index}
       >
-        <div style={{ color: textColor, fontWeight: "bolder" }}>Card Title</div>
+        <div style={{ color: textColor, fontWeight: "bolder" }}>Title</div>
         <Form.Group>
           <Form.Control
             size="lg"
